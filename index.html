@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Herbie Runner</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="game"></canvas>
+  
+  <!-- Title Screen -->
+  <div id="title-screen" class="screen">
+    <div class="screen-content">
+      <h1 class="game-title">Herbie Runner</h1>
+      <p class="subtitle">Clear the path, move together</p>
+      <div class="daily-badge" aria-label="Daily challenge">
+        <span class="daily-dot"></span>
+        <span>Daily: Clear 50 obstacles</span>
+      </div>
+      <button class="primary-button" id="start-button">Tap to Begin</button>
+      <div class="palette-indicator">
+        <span class="palette-dot" data-palette="dawn"></span>
+        <span class="palette-dot active" data-palette="sunset"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Onboarding Prompt -->
+  <div id="onboarding" class="overlay hidden">
+    <div class="prompt-box">
+      <div class="tap-icon">⚡</div>
+      <p id="onboarding-text">Tap obstacles rapidly to clear Herbie's path!</p>
+    </div>
+  </div>
+
+  <!-- HUD -->
+  <div id="hud" class="hidden">
+    <div class="hud-container">
+      <div class="score-display">
+        <span class="label">Distance</span>
+        <span class="value" id="score">0</span>
+      </div>
+      <div class="flow-display">
+        <span class="label">Flow</span>
+        <span class="value" id="flow">1.0x</span>
+      </div>
+      <div class="obstacles-display">
+        <span class="label">Cleared</span>
+        <span class="value" id="obstacles-cleared">0</span>
+      </div>
+    </div>
+    <div class="hud-actions">
+      <button class="icon-button" id="contrast-toggle" aria-label="Toggle High Contrast" title="High Contrast">◐</button>
+      <button class="icon-button" id="pause-button" aria-label="Pause">⏸</button>
+    </div>
+  </div>
+
+  <!-- Pause Overlay -->
+  <div id="pause-overlay" class="overlay hidden">
+    <div class="overlay-content">
+      <h2>Paused</h2>
+      <button class="primary-button" id="resume-button">Resume</button>
+      <button class="secondary-button" id="quit-button">Quit</button>
+    </div>
+  </div>
+
+  <!-- Game Over Screen -->
+  <div id="gameover-screen" class="screen hidden">
+    <div class="screen-content">
+      <h2 class="result-title">Journey Complete</h2>
+      <div class="stats">
+        <div class="stat-item">
+          <span class="stat-label">Distance</span>
+          <span class="stat-value" id="final-score">0</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Best</span>
+          <span class="stat-value" id="best-score">0</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Cleared</span>
+          <span class="stat-value" id="final-obstacles-cleared">0</span>
+        </div>
+      </div>
+      <button class="primary-button" id="retry-button">Try Again</button>
+      <button class="secondary-button" id="menu-button">Menu</button>
+    </div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
